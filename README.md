@@ -31,6 +31,7 @@ To do so, run ```python manage.py createsuperuser```, and set the user/password 
 
 # Meeting minutes
 ***Week 1 Thurs Meeting:***  
+   
 1.want a project that highlights user engagement  
 2.leveraging the admin components  
 3.multiple micro-services - more modular  
@@ -66,7 +67,7 @@ NIkki and Tianci to draft initial database design statement - with database type
 Tom to look into Poetry  
 ALL look through relevant tutorials  
 
-***Week 2, Monday Pairing***
+***Week 2, Monday Pairing:***
 1. Thank you Enric for lending us your smart brain!
 2. Blaked drove us through setting up Docker. 
 3. We ran into a problem where the local browser is 404 yet the container is telling us that the development server is up. We tried switching ports exposure configurations all kinds of ways to no avail. Then we realized that it was an error in the ```CMD``` section of the Dockerfile, where instead of setting "127.0.0.1:8000" directly, we should've used the generic "0.0.0.0:8000"
