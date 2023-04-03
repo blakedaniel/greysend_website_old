@@ -30,39 +30,44 @@ To do so, run ```python manage.py createsuperuser```, and set the user/password 
 <img width="479" alt="Screen-Shot-2023-04-03-at-3 44 10-PM" src="https://user-images.githubusercontent.com/69414708/229646103-1dc02cd2-2dd9-4b91-98b4-6461d8af41e0.png">
 
 # Meeting minutes
-***Week 1 Thurs Meeting:***
+***Week 1 Thurs Meeting:***  
+1.want a project that highlights user engagement  
+2.leveraging the admin components  
+3.multiple micro-services - more modular  
+4.Chop up the project to take on different parts  
+5.5-week project?  
+6.Kathrin - interest in testing  
+7.Asynchronous parts  
+8.Authorization and database design - Tianci (app architecture)   
+9.Database design - Nikki  
+10.UI - katharin / Tom  
+
+**Chat Features of Graysend**
+
+1.1:1 chat  
+2.logging in  
+3.Identity/user profile  
+4.messages in text  
+5.Authorization (Tianci)  
+6.state of message: Read vs. unread and backlog  
+7.database design  
     
-    #want a project that highlights user engagement
-    #leveraging the admin components
-    #multiple micro-services - more modular
-    #Chop up the project to take on different parts
-    #5-week project?
-    #Kathrin - interest in testing
-    #Asynchronous parts
-    #Authorization and database design - Tianci (app architecture)
-    #Database design - Nikki
-    #UI - katharin / Tom
+**Goal for next week:**  
 
-Chat Features of Graysend
+1.decide on who is owning what part  
+2. ~~weigh venv vs. docker vs. poetry~~  
 
-    #1:1 chat
-    #logging in
-    #Identity/user profile
-    #messages in text
-    #Authorization (Tianci)
-    #state of message: Read vs. unread and backlog
-    #database design
-    
-Goal for next week:
+**Task:**
 
-    #decide on who is owning what part
-    ~ ~weigh venv vs. docker vs. poetry~ ~
+~~Blake to create skeleton repo and share with group~~    
+NIkki and Tianci to draft initial database design statement - with database type  
+~~Tianci to start awesome Django thread!!!~~  
+~~Kathrin to share the ADR sample~~  
+Tom to look into Poetry  
+ALL look through relevant tutorials  
 
-Task
-
-    ~~Blake to create skeleton repo and share with group~~  
-    NIkki and Tianci to draft initial database design statement - with database type
-    ~~Tianci to start awesome Django thread!!!~~
-    ~~Kathrin to share the ADR sample~~
-    Tom to look into Poetry
-    ALL look through relevant tutorials
+***Week 2, Monday Pairing***
+1. Thank you Enric for lending us your smart brain!
+2. Blaked drove us through setting up Docker. 
+3. We ran into a problem where the local browser is 404 yet the container is telling us that the development server is up. We tried switching ports exposure configurations all kinds of ways to no avail. Then we realized that it was an error in the ```CMD``` section of the Dockerfile, where instead of setting "127.0.0.1:8000" directly, we should've used the generic "0.0.0.0:8000"
+4. Enric told us about the magic of ```curl``` and stripping everything away to reproduce the minimum functionality and then slowly building things back up as a way to debug.
