@@ -3,7 +3,7 @@
 ## Set Up Your Own Development Environment
 
 1. Clone this repository, copy the repo url and run ```git clone [repo url]``` on your terminal in your local directory of choice.
-2. Install the Docker extension on your VScode, which allows you monitor the state of the containers.
+2. Install the Docker extension on your VScode, which allows you to monitor the state of the containers.
 3. In your working directory, run ```docker build .``` to build the image from Dockerfile.
 4. If successful, run ```docker compose up``` to build the containers from the image.
 
