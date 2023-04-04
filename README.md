@@ -72,3 +72,32 @@ ALL look through relevant tutorials
 2. Blaked drove us through setting up Docker. 
 3. We ran into a problem where the local browser is 404 yet the container is telling us that the development server is up. We tried switching ports exposure configurations all kinds of ways to no avail. Then we realized that it was an error in the ```CMD``` section of the Dockerfile, where instead of setting "127.0.0.1:8000" directly, we should've used the generic "0.0.0.0:8000"
 4. Enric told us about the magic of ```curl``` and stripping everything away to reproduce the minimum functionality and then slowly building things back up as a way to debug.
+
+
+***DB brainstorm***
+&& - not too important
+
+Users - User_ID, first_name, last_name, nick_name, DOB
+
+[Django might have it] Auth User - User ID, username, email, created_time (phone, etc)
+
+Conversations - ID, created_time, &created_by&, archived(bool), admin_id
+
+convo_participants - convo_id, user_id, tag
+
+Messages - ID, text, sent_time, read_time, deleted, deleted_time, senderID, convo_ID
+
+msgEmojis - Emoji_ID, message_ID, placed_by (userID)
+
+Emojis - Emoji_ID, image
+
+Convo_tags - tag_ID, convo_ID, user_ID
+
+tags - tag_id, tag_text, user_ID(nullable), global(boolean)
+
+
+
+Todo - many-to-many [user - convo] [convo - tags]
+
+
+
