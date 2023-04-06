@@ -1,6 +1,4 @@
-# greysend_website
-
-## Set Up Your Own Development Environment
+# Set Up Your Own Development Environment
 
 1. Clone this repository, copy the repo url and run `git clone [repo url]` on your terminal in your local directory of choice.
 2. Install the Docker extension on your VScode, which allows you to monitor the state of the containers.
@@ -30,76 +28,68 @@ And your localhost:8000 will look like this:
 
 # Meeting minutes
 
-**_Week 1 Thurs Meeting:_**
+## Week 1 Thursday Meeting:
+### Agenda:
+- want a project that highlights user engagement  
+- leveraging the admin components  
+- multiple micro-services - more modular  
+- Chop up the project to take on different parts  
+- 5-week project?  
+- Kathrin - interest in testing  
+- Asynchronous parts  
+- Authorization and database design - Tianci (app architecture)  
+- Database design - Nikki  
+- UI - katharin / Tom  
 
-1.want a project that highlights user engagement
-2.leveraging the admin components
-3.multiple micro-services - more modular
-4.Chop up the project to take on different parts
-5.5-week project?
-6.Kathrin - interest in testing
-7.Asynchronous parts
-8.Authorization and database design - Tianci (app architecture)
-9.Database design - Nikki
-10.UI - katharin / Tom
+### Dids&Conclusions:
+- 1:1 chat
+- logging in 
+- Identity/user profile 
+- messages in text 
+- Authorization (Tianci) 
+- state of message: Read vs. unread and backlog 
+- database design 
 
-**Chat Features of Graysend**
+### Todos:
+- decide on who is owning what part 2. ~~weigh venv vs. docker vs. poetry~~
+- Blake to create skeleton repo and share with group 
+- NIkki and Tianci to draft initial database design statement - with database type
+- Tianci to start awesome Django thread!!!~
+- Kathrin to share the ADR sample
+- Tom to look into Poetry
+- ALL look through relevant tutorials
 
-1.1:1 chat
-2.logging in
-3.Identity/user profile
-4.messages in text
-5.Authorization (Tianci)
-6.state of message: Read vs. unread and backlog
-7.database design
+## Week 2, Monday Docker Pairing:
 
-**Goal for next week:**
+- Thank you Enric for lending us your smart brain!
+- Blaked drove us through setting up Docker.
+- We ran into a problem where the local browser is 404 yet the container is telling us that the development server is up. We tried switching ports exposure configurations all kinds of ways to no avail. Then we realized that it was an error in the `CMD` section of the Dockerfile, where instead of setting "127.0.0.1:8000" directly, we should've used the generic "0.0.0.0:8000"
+- Enric told us about the magic of `curl`.
 
-1.decide on who is owning what part 2. ~~weigh venv vs. docker vs. poetry~~
 
-**Task:**
-
-~~Blake to create skeleton repo and share with group~~
-NIkki and Tianci to draft initial database design statement - with database type
-~~Tianci to start awesome Django thread!!!~~
-~~Kathrin to share the ADR sample~~
-Tom to look into Poetry
-ALL look through relevant tutorials
-
-**_Week 2, Monday Pairing:_**
-
-1. Thank you Enric for lending us your smart brain!
-2. Blaked drove us through setting up Docker.
-3. We ran into a problem where the local browser is 404 yet the container is telling us that the development server is up. We tried switching ports exposure configurations all kinds of ways to no avail. Then we realized that it was an error in the `CMD` section of the Dockerfile, where instead of setting "127.0.0.1:8000" directly, we should've used the generic "0.0.0.0:8000"
-4. Enric told us about the magic of `curl` and stripping everything away to reproduce the minimum functionality and then slowly building things back up as a way to debug.
-
-**_DB brainstorm_**
-&& - not too important
-
-Users - User_ID, first_name, last_name, nick_name, DOB
-
-[Django might have it] Auth User - User ID, username, email, created_time (phone, etc)
-
-Conversations - ID, created_time, &created_by&, archived(bool), admin_id
-
-convo_participants - convo_id, user_id, tag
-
-Messages - ID, text, sent_time, read_time, deleted, deleted_time, senderID, convo_ID
-
-msgEmojis - Emoji_ID, message_ID, placed_by (userID)
-
-Emojis - Emoji_ID, image
-
-Convo_tags - tag_ID, convo_ID, user_ID
-
-tags - tag_id, tag_text, user_ID(nullable), global(boolean)
-
-Todo - many-to-many [user - convo] [convo - tags]
-
-### Today's meeting
-
-- Poetry
+## Week 2, Thursday Meeting:
+### Agenda:
+- Poetry 
 - Version Control
 - Data Structure
 - ML Extension
 - Separating the apps
+
+### Dids & Conclusions:
+- We like poetry and will do poetry
+- Kathrin showed us github workflow
+- We moved repo to an organization on Github (Thanks Abraham)
+- We like the current DB design
+- Many-to-many intermediary tables are named as statements
+- We are all admins on the repo and will break things
+
+### Todos:
+- Enric: CI/CD angel
+- Tom: Implement Poetry
+- Abraham: Automatic Vulnerability Scanner
+- Kathrin & Tom & Elizabeth: UI/UX 
+- Kathrin: Dummy data for our local DB instance
+- Blake & Iggee: Set up free-tier S3 & RDS instance
+- Richie: Custom user class
+- Blake & Elizabeth: ML-extension, what library?
+- Iggee: Think aloud for how to split apps; populate models.py in current app.
