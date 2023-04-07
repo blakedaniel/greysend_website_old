@@ -13,6 +13,7 @@ services:
       POSTGRES_USER: admin
       POSTGRES_PASSWORD: asdf1234
       POSTGRES_HOST: postgres
+      PRODUCTION: true
     ports:
       - 8002:8002
     depends_on:
