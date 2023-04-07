@@ -1,3 +1,5 @@
+
+
 # Set Up Your Own Development Environment
 
 1. Clone this repository, copy the repo url and run `git clone [repo url]` on your terminal in your local directory of choice.
@@ -25,6 +27,46 @@ And your localhost:8000 will look like this:
 8. Now, we have applied the changes that Django's built-in admin/sessions interface needs to make to the DB. One last thing we need to do is to create a superuser, so we can be omnipotent in our respective dev environment.
    To do so, run `python manage.py createsuperuser`, and set the user/password for the superuser to your liking, like so:
    <img width="479" alt="Screen-Shot-2023-04-03-at-3 44 10-PM" src="https://user-images.githubusercontent.com/69414708/229646103-1dc02cd2-2dd9-4b91-98b4-6461d8af41e0.png">
+
+Local Development
+=================
+
+This guide will help you set up the local development environment using SQLite3, which eliminates the need to rebuild the Docker container.
+
+Prerequisites
+-------------
+
+*   Python 3
+*   pip
+
+Setup Instructions
+------------------
+
+1.  **Clone the repository**: Copy the repo URL and run `git clone [repo url]` in your terminal, within your desired local directory.
+    
+2.  **Install dependencies**: In the project directory, run the following command to install the required packages:
+    
+    `pip install -r requirements.txt`
+    
+3.  **Migrate the database**: Run the following command to apply the necessary migrations:
+    
+    `python3 manage.py migrate`
+    
+4.  **Start the development server**: Run the following command to start the development server on port 8002:
+    
+    ```bash
+    python3 manage.py runserver 8002
+    ```
+    
+5.  **Access the application**: Open your web browser and navigate to the following URL:
+
+    
+    ```bash
+    http://127.0.0.1:8002/
+    ```
+    
+
+Now you should be able to view and interact with the application in your local environment.
 
 # Meeting minutes
 
