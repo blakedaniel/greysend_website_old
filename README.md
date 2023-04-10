@@ -1,6 +1,6 @@
 
 
-# Set Up Your Own Development Environment
+# Set Up Your Own Development Environment - Docker Versio
 
 1. Clone this repository, copy the repo url and run `git clone [repo url]` on your terminal in your local directory of choice.
 2. Install the Docker extension on your VScode, which allows you to monitor the state of the containers.
