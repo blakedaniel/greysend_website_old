@@ -9,16 +9,16 @@ class ChatUser (models.Model):
         on_delete=models.CASCADE,
         primary_key=True,
     )
-    profile_url = models.CharField()
+    profile_url = models.CharField(max_length=100)
     date_of_birth = models.DateField()
 
 #convos and msgs
 class Conversation(models.Model):
-    title = models.CharField()
+    title = models.CharField(max_length=100)
     created_at = models.DateTimeField()
-    created_by = models.ForeignKey(ChatUser, on_delete=models.CASCADE)
+    created_by = models.ForeignKey(ChatUser, on_delete=models.CASCADE, related_name='created_conversations')
     is_archived = models.BooleanField()
-    admin_id = models.ForeignKey(ChatUser)
+    admin_id = models.ForeignKey(ChatUser, on_delete=models.CASCADE, related_name='admin_conversations')
 
     ##new columns
     updated_at = models.DateTimeField()
@@ -34,7 +34,7 @@ class ConversationHasUser(models.Model):
     user_id = models.ForeignKey(ChatUser, on_delete=models.CASCADE)
 
 class Message(models.Model):
-    text = models.CharField()
+    text = models.CharField(max_length=100)
     sent_time = models.DateTimeField()
     read_time= models.DateTimeField()   
     conversation_id = models.ForeignKey(Conversation, on_delete=models.CASCADE)
@@ -47,7 +47,7 @@ class Message(models.Model):
 
 #tags
 class Tag(models.Model):
-    text = models.CharField()
+    text = models.CharField(max_length=100)
     creator_id = models.ForeignKey(ChatUser, on_delete=models.CASCADE, null=True)
     #"global" renamed as "is_system"
     is_system = models.BooleanField()
@@ -56,6 +56,10 @@ class ConversationHasTag(models.Model):
     conversation_id = models.ForeignKey(Conversation, on_delete=models.CASCADE)
     tag_id = models.ForeignKey(Tag, on_delete=models.CASCADE)
 
+class Emoji (models.Model):
+    image_url = models.CharField(max_length=100)
+
+
 #emojis
 class MessageHasReacji(models.Model):
     message_id = models.ForeignKey(Message, on_delete=models.CASCADE)
@@ -63,5 +67,4 @@ class MessageHasReacji(models.Model):
     user_id = models.ForeignKey(ChatUser, on_delete=models.CASCADE)
     placed_at = models.DateTimeField()
 
-class Emoji (models.Model):
-    image_url = models.CharField()
+    
