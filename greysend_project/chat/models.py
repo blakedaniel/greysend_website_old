@@ -1,11 +1,12 @@
 from django.db import models
 from django.contrib.auth.models import User
+from accounts.models import AccountUser
 
 #users
     # Require Richie to replace User model here with custom user model
 class ChatUser (models.Model):
     User = models.OneToOneField(
-        User,
+        AccountUser,
         on_delete=models.CASCADE,
         primary_key=True,
     )
