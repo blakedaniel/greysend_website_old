@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat Users</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+        crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="my-4">Welcome to our Gresend Community Members}!</h1>
+
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+            {% for user in users %}
+            <div class="col">
+                <div class="card h-100">
+                    <img src="" class="card-img-top dog-image" alt="Cute Dog">
+                    <div class="card-body">
+                        <h5 class="card-title fw-bold">{{ user.given_name }} {{ user.family_name }}</h5>
+                        <p class="card-text">@{{ user.user_name }}</p>
+                    </div>
+                    <div class="card-footer">
+                        <a href="#" class="btn btn-primary">View Profile</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <script>
+        window.onload = function() {
+            const dogImages = document.querySelectorAll('.dog-image');
+            dogImages.forEach((img) => {
+                img.src = `https://placedog.net/300/200?random=${Math.random()}`;
+            });
+        };
+    </script>
+</body>
+
+</html>
