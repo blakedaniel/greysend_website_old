@@ -17,10 +17,9 @@ from django.contrib import admin
 from django.urls import path, include
 from chat.views import test_view
 
-
 urlpatterns = [
     path('', include('chat.urls')),
     path("admin/", admin.site.urls),
     path('test/', test_view, name='test'),
-
+    path('accounts/', include('accounts.urls'))
 ]
